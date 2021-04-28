@@ -1,3 +1,4 @@
+" Testing
 " Load plugins ----------------------------------------------------------------
 
 call plug#begin('~/.config/nvim/plugged')
