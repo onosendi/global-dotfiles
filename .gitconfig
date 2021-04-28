@@ -1,0 +1,13 @@
+[user]
+  email = onosendi@dlindegren.com
+  name = Daniel Lindegren
+[core]
+  editor = vim
+[alias]
+  st = status
+  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  publish = push live master:master
+[pull]
+  rebase = false
+[init]
+  defaultBranch = master
