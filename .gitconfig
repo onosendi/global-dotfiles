@@ -4,8 +4,8 @@
 [core]
   editor = vim
 [alias]
-  st = status
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  l = log --oneline
   publish = push live master:master
 [pull]
   rebase = false
