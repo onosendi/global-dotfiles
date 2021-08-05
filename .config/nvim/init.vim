@@ -1,3 +1,4 @@
+
 " Load plugins ----------------------------------------------------------------
 
 call plug#begin('~/.config/nvim/plugged')
@@ -8,7 +9,6 @@ Plug('junegunn/fzf')
 Plug('junegunn/fzf.vim')
 Plug('preservim/nerdtree')
 Plug('vim-airline/vim-airline')
-Plug('dense-analysis/ale')
 Plug('Yggdroot/indentLine')
 Plug('sheerun/vim-polyglot')
 Plug('dylnmc/synstack.vim')
@@ -17,10 +17,12 @@ Plug('tpope/vim-surround')
 Plug('tpope/vim-eunuch')
 Plug('tpope/vim-repeat')
 Plug('tpope/vim-fugitive')
-Plug('neoclide/coc.nvim')
+Plug('neovim/nvim-lspconfig')
+Plug('hrsh7th/nvim-compe')
+Plug('hrsh7th/vim-vsnip')
+Plug('hrsh7th/vim-vsnip-integ')
 
 call plug#end()
-
 
 " General ---------------------------------------------------------------------
 
@@ -53,6 +55,7 @@ let loaded_matchparen = 1        " Turn off parenthesis match highlighting.
 set nofoldenable                 " Do not fold code.
 set cmdheight=1                  " Height of the command bar.
 set termguicolors
+set signcolumn=number
 highlight NonText ctermbg=none
 highlight CursorLineNr ctermbg=none
 
@@ -205,84 +208,19 @@ let g:airline_symbols.dirty = ''
 colorscheme gruvbox
 
 
-" Ale -------------------------------------------------------------------------
-
-let g:ale_lint_on_enter = 1
-let g:ale_lint_on_filetype_changed = 1
-let g:ale_lint_on_insert_leave = 1
-let g:ale_lint_on_save = 1
-let g:ale_lint_on_text_changed = 'always'
-let g:ale_sign_column_always = 0
-
-nnoremap <silent><leader>af :ALEFix<CR>
-nnoremap <silent><leader>al :ALELint<CR>
-nnoremap <silent><leader>ar :ALEReset<CR>
-nnoremap <silent><leader>an :ALENextWrap<CR>
-nnoremap <silent><leader>ap :ALEPreviousWrap<CR>
-
-" Always show the sign column.
-if has("patch-8.1.1564")
-  set signcolumn=number
-else
-  set signcolumn=yes
-endif
-
-highlight clear SignColumn
-
-
 " indentLine ------------------------------------------------------------------
 
 let g:indentLine_color_term = 237
 
 
-" coc -------------------------------------------------------------------------
+" nvim-lsp --------------------------------------------------------------------
 
-" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
-" delays and poor user experience.
-set updatetime=300
+lua require('lsp-config')
 
-" Don't pass messages to |ins-completion-menu|.
-set shortmess+=c
 
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+" nvim-compe" -----------------------------------------------------------------
 
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
-let g:coc_global_extensions = [
-  \ 'coc-json',
-  \ 'coc-tsserver',
-  \ 'coc-css',
-  \ 'coc-emmet',
-  \ 'coc-html',
-  \ ]
-
-inoremap <silent><expr> <c-space> coc#refresh()
-
-" Go to definition.
-nmap <silent>cgd <Plug>(coc-definition)
-
-" Symbol renaming.
-nmap <leader>crn <Plug>(coc-rename)
-
-" Remap <C-f> and <C-b> for scroll float windows/popups.
-if has('nvim-0.4.0') || has('patch-8.2.0750')
-  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
-  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-endif
+lua require('compe-config')
 
 
 " polyglot --------------------------------------------------------------------
