@@ -1,4 +1,4 @@
--- when set to 'dark' or 'light', adjusts the default color groups
+-- When set to 'dark' or 'light', adjusts the default color groups
 vim.opt.background = 'dark'
 
 -- Make a backup before overwriting a file
