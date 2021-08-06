@@ -1,3 +1,17 @@
+vim.g.ale_completion_enabled = 0
+vim.g.ale_linters = {
+  javascript = {'eslint'},
+  javascriptreact = {'eslint'},
+  python = {'flake8',},
+}
+vim.g.ale_fixers = {
+  ['*'] = {'remove_trailing_lines', 'trim_whitespace'},
+  javascript = {'eslint'},
+  javascriptreact = {'eslint'},
+  python = {'black', 'isort'},
+}
+
+vim.g.ale_fix_on_save = 1
 vim.g.ale_lint_on_enter = 1
 vim.g.ale_lint_on_filetype_changed = 1
 vim.g.ale_lint_on_insert_leave = 1
