@@ -1,12 +1,1 @@
-require('plugins')
-require('options')
-require('misc')
-require('keybindings')
-
-require('plugin-config.nvim-lspconfig')
-require('plugin-config.nvim-compe')
-require('plugin-config.vim-polyglot')
-require('plugin-config.vim-airline')
-require('plugin-config.nvim-colorizer')
-require('plugin-config.nerdtree')
-require('plugin-config.fzf')
+require('index')
