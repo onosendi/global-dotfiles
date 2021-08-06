@@ -13,13 +13,3 @@ map('n', '<C-H>', '<C-W><C-H>', { noremap = true })
 
 -- Noramlize window sizes
 map('n', '<Leader>ds', '<C-W>=', { noremap = true })
-
--- Fzf
-map('n', '<Leader>ff', ':Files<CR>', { noremap = true })
-map('n', '<Leader>fg', ':GFiles<CR>', { noremap = true })
-map('n', '<Leader>fw', ':Windows<CR>', { noremap = true })
-map('n', '<Leader>fb', ':Buffers<CR>', { noremap = true })
-
--- Nerdtree
-map('n', '<Leader>nt', ':NERDTreeToggle<CR>', { noremap = true, silent = true })
-map('n', '<Leader>nr', ':NERDTreeRefreshRoot<CR>', { noremap = true, silent = true })
