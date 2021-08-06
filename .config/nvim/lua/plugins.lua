@@ -22,5 +22,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'hrsh7th/nvim-compe'
 Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/vim-vsnip-integ'
+Plug 'dense-analysis/ale'
 
 vim.call('plug#end')
