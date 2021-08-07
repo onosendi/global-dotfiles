@@ -11,8 +11,14 @@ lspconfig.tsserver.setup {
 
 lspconfig.html.setup {
   capabilities = capabilities,
+  filetypes = {'html', 'htmldjango'},
 }
 
 lspconfig.cssls.setup {
   capabilities = capabilities,
+}
+
+lspconfig.pyright.setup {
+  -- Disable diagnostics since we're currently using ALE
+  handlers = {['textDocument/publishDiagnostics'] = function(...) end  },
 }
