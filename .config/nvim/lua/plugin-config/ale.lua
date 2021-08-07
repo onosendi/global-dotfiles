@@ -18,8 +18,8 @@ vim.g.ale_lint_on_insert_leave = 1
 vim.g.ale_lint_on_save = 1
 vim.g.ale_lint_on_text_changed = 'always'
 vim.g.ale_sign_column_always = 0
-vim.g.ale_sign_error = 'E'
-vim.g.ale_sign_warning = 'W'
+vim.g.ale_sign_error = ''
+vim.g.ale_sign_warning = ''
 
 local map = vim.api.nvim_set_keymap
 local options = { noremap = true, silent = true }

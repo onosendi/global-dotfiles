@@ -1,0 +1,12 @@
+{
+  "consoleLog": {
+    "prefix": "cl",
+    "body": "console.log($1);",
+    "description": "Console log statement"
+  },
+  "consoleWarn": {
+    "prefix": "cw",
+    "body": "console.warn($1);",
+    "description": "Console warn statement"
+  }
+}
