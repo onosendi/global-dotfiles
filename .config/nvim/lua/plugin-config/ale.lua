@@ -17,9 +17,14 @@ vim.g.ale_lint_on_filetype_changed = 1
 vim.g.ale_lint_on_insert_leave = 1
 vim.g.ale_lint_on_save = 1
 vim.g.ale_lint_on_text_changed = 'always'
-vim.g.ale_sign_column_always = 0
+vim.g.ale_sign_column_always = 1
 vim.g.ale_sign_error = ''
 vim.g.ale_sign_warning = ''
+
+vim.cmd [[
+  hi ALEErrorSign guibg=none guifg=#fb4934
+  hi ALEWarningSign guibg=none guifg=#fabd2f
+]]
 
 local map = vim.api.nvim_set_keymap
 local options = { noremap = true, silent = true }
