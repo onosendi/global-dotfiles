@@ -22,3 +22,7 @@ lspconfig.pyright.setup {
   -- Disable diagnostics since we're currently using ALE
   handlers = {['textDocument/publishDiagnostics'] = function(...) end  },
 }
+
+lspconfig.bashls.setup {}
+
+lspconfig.jsonls.setup {}
