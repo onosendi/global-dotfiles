@@ -11,22 +11,22 @@
   },
   "reactFunctionComponentWithProps": {
     "prefix": "rfcp",
-    "body": "import PropTypes from 'prop-types';\n\nconst ${TM_FILENAME_BASE} = () => (\n\t$1\n);\n\n${TM_FILENAME_BASE}.defaultProps = {};\n\n${TM_FILENAME_BASE}.propTypes = {};\n\nexport default ${TM_FILENAME_BASE};",
+    "body": "import PropTypes from 'prop-types';\n\nconst ${TM_FILENAME_BASE} = () => (\n\t$1\n);\n\n${TM_FILENAME_BASE}.defaultProps = {\n\n};\n\n${TM_FILENAME_BASE}.propTypes = {\n\n};\n\nexport default ${TM_FILENAME_BASE};",
     "description": "Creates a React function component with PropTypes"
   },
   "reactFunctionComponentWithReturnWithProps": {
     "prefix": "rfcrp",
-    "body": "import PropTypes from 'prop-types';\n\nconst ${TM_FILENAME_BASE} = () => {\n\treturn (\n\t\t$1\n\t);\n};\n\n${TM_FILENAME_BASE}.defaultProps = {};\n\n${TM_FILENAME_BASE}.propTypes = {};\n\nexport default ${TM_FILENAME_BASE};",
+    "body": "import PropTypes from 'prop-types';\n\nconst ${TM_FILENAME_BASE} = () => {\n\treturn (\n\t\t$1\n\t);\n};\n\n${TM_FILENAME_BASE}.defaultProps = {\n\n};\n\n${TM_FILENAME_BASE}.propTypes = {\n\n};\n\nexport default ${TM_FILENAME_BASE};",
     "description": "Creates a React function component with a return and PropTypes"
   },
   "propTypes": {
     "prefix": "rpt",
-    "body": "$1.propTypes = {\n\t$2\n};",
+    "body": "${TM_FILENAME_BASE}.propTypes = {\n\t$1\n};",
     "description": "Creates empty propTypes declaration"
   },
   "defaultProps": {
     "prefix": "rdp",
-    "body": "$1.defaultProps = {\n\t$2\n};",
+    "body": "${TM_FILENAME_BASE}.defaultProps = {\n\t$1\n};",
     "description": "Creates empty defaultProps declaration"
   },
   "propTypeArray": {
