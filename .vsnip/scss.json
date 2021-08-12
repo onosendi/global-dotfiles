@@ -1,0 +1,7 @@
+{
+  "respondToMixin": {
+    "prefix": "mrt",
+    "body": "@include mixins.respond-to($1) {\n}",
+    "description": "Include respond-to mixin"
+  }
+}
