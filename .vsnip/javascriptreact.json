@@ -179,7 +179,6 @@
     "body": [
       "useEffect(() => {",
       "\t$1",
-      "\t}",
       "}, []);"
     ],
     "description": "React useEffect() hook"
