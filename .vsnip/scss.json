@@ -1,4 +1,8 @@
 {
+  "clrFunction": {
+    "prefix": "clr",
+    "body": "functions.clr($1);"
+  },
   "respondToMixin": {
     "prefix": "mrt",
     "body": "@include mixins.respond-to($1) {\n}",
