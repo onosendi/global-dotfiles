@@ -1,3 +1,8 @@
+-- npm i -g typescript typescript-language-server
+-- npm i -g vscode-langservers-extracted
+-- npm i -g pyright
+-- npm i -g bash-language-server
+
 local lspconfig = require('lspconfig')
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
