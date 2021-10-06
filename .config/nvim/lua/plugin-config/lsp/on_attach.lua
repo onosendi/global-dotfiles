@@ -10,8 +10,8 @@ return function(client)
   map('n', '<leader>lt', '<cmd>lua vim.lsp.buf.type_definition()<CR>', options)
   map('n', '<leader>lr', '<cmd>lua vim.lsp.buf.references()<CR>', options)
   map('n', '<leader>lw', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ show_header = false })<CR>', options)
-  map('n', '<leader>lp', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', options)
-  map('n', '<leader>ln', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', options)
+  map('n', '<leader>lp', '<cmd>lua vim.lsp.diagnostic.goto_prev({ popup_opts = { show_header = false }})<CR>', options)
+  map('n', '<leader>ln', '<cmd>lua vim.lsp.diagnostic.goto_next({ popup_opts = { show_header = false }})<CR>', options)
 
   vim.api.nvim_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
