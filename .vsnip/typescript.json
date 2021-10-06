@@ -1,0 +1,17 @@
+{
+  "consoleLog": {
+    "prefix": "cl",
+    "body": "console.log($1);",
+    "description": "Console log statement"
+  },
+  "consoleWarn": {
+    "prefix": "cw",
+    "body": "console.warn($1);",
+    "description": "Console warn statement"
+  },
+  "eslintDisableNextLine": {
+    "prefix": "edl",
+    "body": "// eslint-disable-next-line $1",
+    "description": "Comment to disable eslint on the next line"
+  }
+}
