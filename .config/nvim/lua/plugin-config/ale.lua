@@ -8,6 +8,7 @@ vim.g.ale_fixers = {
   ['*'] = {'remove_trailing_lines', 'trim_whitespace'},
   javascript = {'eslint'},
   javascriptreact = {'eslint'},
+  typescript = {'eslint'},
   python = {'black', 'isort'},
 }
 
@@ -34,3 +35,4 @@ map('n', '<Leader>al', ':ALELint<CR>', options)
 map('n', '<Leader>ar', ':ALEReset<CR>', options)
 map('n', '<Leader>an', ':ALENextWrap<CR>', options)
 map('n', '<Leader>ap', ':ALEPreviousWrap<CR>', options)
+map('n', '<Leader>ao', ':ALEOrganizeImports<CR>', options)
