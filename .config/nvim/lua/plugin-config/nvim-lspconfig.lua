@@ -2,6 +2,8 @@
 -- npm i -g vscode-langservers-extracted
 -- npm i -g pyright
 -- npm i -g bash-language-server
+-- npm i -g eslint_d
+-- pacman -S efm-langserver
 
 vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics,
@@ -38,6 +40,7 @@ vim.fn.sign_define('LspDiagnosticsSignHint', {
 
 require 'plugin-config/lsp/bash';
 require 'plugin-config/lsp/css';
+require 'plugin-config/lsp/efm';
 require 'plugin-config/lsp/html';
 require 'plugin-config/lsp/json';
 require 'plugin-config/lsp/python';
