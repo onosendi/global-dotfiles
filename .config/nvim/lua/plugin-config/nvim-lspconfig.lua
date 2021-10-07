@@ -29,7 +29,7 @@ vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
 )
 
 vim.fn.sign_define('LspDiagnosticsSignError', {
-  text = '✖',
+  text = '',
   numhl = 'LspDiagnosticsDefaultError',
 })
 
