@@ -13,6 +13,10 @@ vim.cmd [[
   hi LspDiagnosticsVirtualTextWarning guifg=#fabd2f
   hi LspDiagnosticsDefaultWarning guifg=#fabd2f
   hi LspDiagnosticsFloatingWarning guifg=#ebdbb2
+
+  hi LspDiagnosticsVirtualTextHint guifg=#ebdbb2
+  hi LspDiagnosticsDefaultHint guifg=#ebdbb2
+  hi LspDiagnosticsFloatingHint guifg=#ebdbb2
 ]]
 
 vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
