@@ -1,4 +1,5 @@
 require 'paq' {
+  'farmergreg/vim-lastplace';
   'hoob3rt/lualine.nvim';
   'hrsh7th/nvim-compe';
   'hrsh7th/vim-vsnip';
@@ -19,5 +20,3 @@ require 'paq' {
   'vijaymarupudi/nvim-fzf';
   'Yggdroot/indentLine';
 }
-
--- Plug 'farmergreg/vim-lastplace'
