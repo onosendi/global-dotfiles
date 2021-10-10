@@ -21,4 +21,18 @@ return function(client)
     vim.cmd('autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil, 1000)')
     vim.cmd('augroup END')
   end
+
+  vim.cmd [[
+    highlight LspDiagnosticsVirtualTextError guifg=#fb4934
+    highlight LspDiagnosticsDefaultError guifg=#fb4934
+    highlight LspDiagnosticsFloatingError guifg=#ebdbb2
+
+    highlight LspDiagnosticsVirtualTextWarning guifg=#fabd2f
+    highlight LspDiagnosticsDefaultWarning guifg=#fabd2f
+    highlight LspDiagnosticsFloatingWarning guifg=#ebdbb2
+
+    highlight LspDiagnosticsVirtualTextHint guifg=#ebdbb2
+    highlight LspDiagnosticsDefaultHint guifg=#ebdbb2
+    highlight LspDiagnosticsFloatingHint guifg=#ebdbb2
+  ]]
 end

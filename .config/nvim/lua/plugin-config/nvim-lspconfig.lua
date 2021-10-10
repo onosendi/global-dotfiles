@@ -5,20 +5,6 @@
 -- npm i -g eslint_d
 -- pacman -S efm-langserver
 
-vim.cmd [[
-  hi LspDiagnosticsVirtualTextError guifg=#fb4934
-  hi LspDiagnosticsDefaultError guifg=#fb4934
-  hi LspDiagnosticsFloatingError guifg=#ebdbb2
-
-  hi LspDiagnosticsVirtualTextWarning guifg=#fabd2f
-  hi LspDiagnosticsDefaultWarning guifg=#fabd2f
-  hi LspDiagnosticsFloatingWarning guifg=#ebdbb2
-
-  hi LspDiagnosticsVirtualTextHint guifg=#ebdbb2
-  hi LspDiagnosticsDefaultHint guifg=#ebdbb2
-  hi LspDiagnosticsFloatingHint guifg=#ebdbb2
-]]
-
 vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics,
   {
