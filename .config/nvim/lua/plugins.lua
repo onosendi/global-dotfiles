@@ -9,6 +9,7 @@ require 'paq' {
   'morhetz/gruvbox';
   'neovim/nvim-lspconfig';
   'norcalli/nvim-colorizer.lua';
+  'savq/paq-nvim';
   'sheerun/vim-polyglot';
   'tpope/vim-commentary';
   'tpope/vim-surround';
