@@ -1,7 +1,0 @@
-require('plugin-config.nvim-lspconfig')
-require('plugin-config.nvim-compe')
-require('plugin-config.vim-polyglot')
-require('plugin-config.lualine')
-require('plugin-config.nvim-colorizer')
-require('plugin-config.fzf-lua')
-require('plugin-config.nvim-tree')

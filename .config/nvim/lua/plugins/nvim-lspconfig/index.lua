@@ -38,10 +38,10 @@ vim.fn.sign_define('LspDiagnosticsSignHint', {
   numhl = 'LspDiagnosticsDefaultHint',
 })
 
-require 'plugin-config/lsp/bash';
-require 'plugin-config/lsp/css';
-require 'plugin-config/lsp/efm';
-require 'plugin-config/lsp/html';
-require 'plugin-config/lsp/json';
-require 'plugin-config/lsp/python';
-require 'plugin-config/lsp/typescript';
+require'plugins.nvim-lspconfig.bash'
+require'plugins.nvim-lspconfig.css'
+require'plugins.nvim-lspconfig.efm'
+require'plugins.nvim-lspconfig.html'
+require'plugins.nvim-lspconfig.json'
+require'plugins.nvim-lspconfig.python'
+require'plugins.nvim-lspconfig.typescript'

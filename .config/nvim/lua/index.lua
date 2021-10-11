@@ -1,5 +1,4 @@
-require('plugins')
-require('options')
-require('misc')
-require('keybindings')
-require('plugin-config.index');
+require'options'
+require'misc'
+require'keybindings'
+require'plugins.index'

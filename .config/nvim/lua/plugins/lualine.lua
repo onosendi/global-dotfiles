@@ -1,4 +1,4 @@
-require('lualine').setup {
+require'lualine'.setup {
   inactive_sections = {
     lualine_x = {},
   },
