@@ -6,4 +6,3 @@ require'plugins.lualine'
 require'plugins.nvim-colorizer'
 require'plugins.fzf-lua'
 require'plugins.nvim-tree'
-
