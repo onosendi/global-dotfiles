@@ -1,9 +1,11 @@
 require 'paq' {
   'farmergreg/vim-lastplace';
   'hoob3rt/lualine.nvim';
-  'hrsh7th/nvim-compe';
+  'hrsh7th/cmp-buffer';
+  'hrsh7th/cmp-nvim-lsp';
+  'hrsh7th/cmp-vsnip';
+  'hrsh7th/nvim-cmp';
   'hrsh7th/vim-vsnip';
-  'hrsh7th/vim-vsnip-integ';
   'ibhagwan/fzf-lua';
   'kyazdani42/nvim-web-devicons';
   'kyazdani42/nvim-tree.lua';

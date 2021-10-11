@@ -2,6 +2,8 @@ local map = vim.api.nvim_set_keymap
 local options = { noremap = true, silent = true }
 
 return function(client)
+  print(client)
+
   map('n', '<leader>lD', '<cmd>lua vim.lsp.buf.declaration()<CR>', options)
   map('n', '<leader>ld', '<cmd>lua vim.lsp.buf.definition()<CR>', options)
   map('n', '<leader>lh', '<cmd>lua vim.lsp.buf.hover()<CR>', options)

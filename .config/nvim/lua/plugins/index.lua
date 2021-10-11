@@ -1,8 +1,9 @@
 require'plugins.paq-nvim'
 require'plugins.nvim-lspconfig.index'
-require'plugins.nvim-compe'
+require'plugins.nvim-cmp'
 require'plugins.vim-polyglot'
 require'plugins.lualine'
 require'plugins.nvim-colorizer'
 require'plugins.fzf-lua'
 require'plugins.nvim-tree'
+
