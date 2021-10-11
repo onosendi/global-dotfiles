@@ -16,10 +16,12 @@ return function(client)
   vim.api.nvim_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   if client.resolved_capabilities.document_formatting then
-    vim.cmd('augroup Format')
-    vim.cmd('autocmd! * <buffer>')
-    vim.cmd('autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync(nil, 1000)')
-    vim.cmd('augroup END')
+    vim.api.nvim_exec([[
+      augroup LspAutocommands
+        autocmd! * <buffer>
+        autocmd BufWritePre <buffer> OrganizeImports
+      augroup END
+    ]], true)
   end
 
   vim.cmd [[
