@@ -11,6 +11,11 @@ M.setup = function(on_attach)
 
       vim.opt_local.omnifunc = 'v:lua.vim.lsp.omnifunc'
     end,
+    settings = {
+      pyright = {
+        disableOrganizeImports = true,
+      },
+    },
   })
 end
 
