@@ -3,7 +3,7 @@ local null_ls = require'null-ls'
 local u = require('utils')
 
 local ts_utils_settings = {
-  debug = true,
+  debug = false,
   disable_commands = false,
   enable_import_on_completion = false,
 
