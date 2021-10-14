@@ -1,5 +1,4 @@
-local lspconfig = require('lspconfig')
-local u = require('utils')
+local lspconfig = require'lspconfig'
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -7,8 +6,8 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 local M = {}
 M.setup = function(on_attach)
   lspconfig.cssls.setup({
-    filetypes = { 'css', 'sass', 'scss' },
     capabilities = capabilities,
+    filetypes = { 'css', 'sass', 'scss' },
     on_attach = function(client, bufnr)
       client.resolved_capabilities.document_formatting = false
       client.resolved_capabilities.document_range_formatting = false
