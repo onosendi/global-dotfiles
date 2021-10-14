@@ -58,10 +58,10 @@ M.setup = function(on_attach)
       ts_utils.setup(ts_utils_settings)
       ts_utils.setup_client(client)
 
-      u.buf_map('n', '<leader>lo', ':TSLspOrganize<CR>', nil, bufnr)
-      u.buf_map('n', '<leader>lR', ':TSLspRenameFile<CR>', nil, bufnr)
-      u.buf_map('n', '<leader>la', ':TSLspImportAll<CR>', nil, bufnr)
-      u.buf_map('n', '<leader>lf', ':TSLspFixCurrent<CR>', nil, bufnr)
+      u.map('n', '<leader>lo', ':TSLspOrganize<CR>')
+      u.map('n', '<leader>lR', ':TSLspRenameFile<CR>')
+      u.map('n', '<leader>la', ':TSLspImportAll<CR>')
+      u.map('n', '<leader>lf', ':TSLspFixCurrent<CR>')
 
       vim.opt_local.omnifunc = 'v:lua.vim.lsp.omnifunc'
     end,

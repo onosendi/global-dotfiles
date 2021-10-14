@@ -14,6 +14,10 @@ M.buf_map = function(mode, target, source, opts, bufnr)
   api.nvim_buf_set_keymap(bufnr or 0, mode, target, source, get_map_options(opts))
 end
 
+M.map = function(mode, mapping, command, options)
+  api.nvim_set_keymap(mode, mapping, command, get_map_options(options))
+end
+
 M.command = function(name, fn)
   vim.cmd(string.format('command! %s %s', name, fn))
 end
