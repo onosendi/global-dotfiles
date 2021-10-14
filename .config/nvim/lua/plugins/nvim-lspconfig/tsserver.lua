@@ -1,4 +1,5 @@
 local lspconfig = require('lspconfig')
+local null_ls = require'null-ls'
 local u = require('utils')
 
 local ts_utils_settings = {
@@ -21,14 +22,7 @@ local ts_utils_settings = {
   eslint_enable_code_actions = true,
   eslint_enable_disable_comments = true,
   eslint_bin = 'eslint_d',
-  eslint_enable_diagnostics = true,
-  -- eslint_opts = {},
-  eslint_opts = {
-    condition = function(utils)
-      return utils.root_has_file('.eslintrc.json')
-    end,
-    diagnostics_format = '#{m} [#{c}]',
-  },
+  eslint_enable_diagnostics = false,
 
   -- formatting
   enable_formatting = false,
@@ -47,6 +41,9 @@ local ts_utils_settings = {
 
 local M = {}
 M.setup = function(on_attach)
+  local null_ls_sources = { null_ls.builtins.diagnostics.eslint_d }
+  null_ls.register({ sources = null_ls_sources })
+
   lspconfig.tsserver.setup({
     on_attach = function(client, bufnr)
       client.resolved_capabilities.document_formatting = false
@@ -62,8 +59,6 @@ M.setup = function(on_attach)
       u.map('n', '<leader>lR', ':TSLspRenameFile<CR>')
       u.map('n', '<leader>la', ':TSLspImportAll<CR>')
       u.map('n', '<leader>lf', ':TSLspFixCurrent<CR>')
-
-      vim.opt_local.omnifunc = 'v:lua.vim.lsp.omnifunc'
     end,
     flags = {
       debounce_text_changes = 150,

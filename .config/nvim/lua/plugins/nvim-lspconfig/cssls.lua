@@ -13,8 +13,6 @@ M.setup = function(on_attach)
       client.resolved_capabilities.document_range_formatting = false
 
       on_attach(client, bufnr)
-
-      vim.opt_local.omnifunc = 'v:lua.vim.lsp.omnifunc'
     end,
     settings = {
       css = {

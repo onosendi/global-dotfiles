@@ -72,6 +72,8 @@ local on_attach = function(client, bufnr)
     highlight LspDiagnosticsDefaultHint guifg=#ebdbb2
     highlight LspDiagnosticsFloatingHint guifg=#ebdbb2
   ]]
+
+  vim.opt_local.omnifunc = 'v:lua.vim.lsp.omnifunc'
 end
 
 bashls.setup(on_attach)
