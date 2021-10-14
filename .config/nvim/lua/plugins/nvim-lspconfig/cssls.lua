@@ -6,9 +6,9 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 local M = {}
 M.setup = function(on_attach)
-  lspconfig.html.setup({
+  lspconfig.cssls.setup({
+    filetypes = { 'css', 'sass', 'scss' },
     capabilities = capabilities,
-    filetypes = {'html', 'htmldjango'},
     on_attach = function(client, bufnr)
       client.resolved_capabilities.document_formatting = false
       client.resolved_capabilities.document_range_formatting = false
@@ -17,6 +17,17 @@ M.setup = function(on_attach)
 
       vim.opt_local.omnifunc = 'v:lua.vim.lsp.omnifunc'
     end,
+    settings = {
+      css = {
+        validate = true
+      },
+      sass = {
+        validate = true
+      },
+      scss = {
+        validate = true
+      }
+    },
   })
 end
 

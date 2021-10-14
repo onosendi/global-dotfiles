@@ -7,11 +7,14 @@ require 'paq' {
   'hrsh7th/nvim-cmp';
   'hrsh7th/vim-vsnip';
   'ibhagwan/fzf-lua';
+  'jose-elias-alvarez/null-ls.nvim';
+  'jose-elias-alvarez/nvim-lsp-ts-utils';
   'kyazdani42/nvim-web-devicons';
   'kyazdani42/nvim-tree.lua';
   'morhetz/gruvbox';
   'neovim/nvim-lspconfig';
   'norcalli/nvim-colorizer.lua';
+  'nvim-lua/plenary.nvim';
   'savq/paq-nvim';
   'sheerun/vim-polyglot';
   'tpope/vim-commentary';
