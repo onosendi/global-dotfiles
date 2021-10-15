@@ -3,15 +3,18 @@ local null_ls = require'null-ls'
 local u = require('utils')
 
 local ts_utils_settings = {
-  cwd = function(params)
-    return require('lspconfig.util').root_pattern('tsconfig.json')(params.bufname)
-  end,
   debug = false,
 }
 
 local M = {}
 M.setup = function(on_attach)
-  local null_ls_sources = { null_ls.builtins.diagnostics.eslint_d }
+  local null_ls_sources = {
+    null_ls.builtins.diagnostics.eslint_d.with({
+      cwd = function(params)
+        return require('lspconfig.util').root_pattern('tsconfig.json')(params.bufname)
+      end,
+    })
+  }
   null_ls.register({ sources = null_ls_sources })
 
   lspconfig.tsserver.setup({
