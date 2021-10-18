@@ -4,6 +4,7 @@ local u = require('utils')
 
 local ts_utils_settings = {
   debug = false,
+  filter_out_diagnostics_by_severity = {'hint'},
 }
 
 local M = {}
