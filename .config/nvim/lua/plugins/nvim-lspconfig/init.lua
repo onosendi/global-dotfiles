@@ -25,24 +25,28 @@ vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
   }
 )
 
-vim.fn.sign_define('LspDiagnosticsSignError', {
+vim.fn.sign_define('DiagnosticSignError', {
   text = '',
-  numhl = 'LspDiagnosticsDefaultError',
+  numhl = 'DiagnosticError',
+  texthl= 'DiagnosticSignError',
 })
 
-vim.fn.sign_define('LspDiagnosticsSignWarning', {
+vim.fn.sign_define('DiagnosticSignWarn', {
   text = '▲',
-  numhl = 'LspDiagnosticsDefaultWarning',
+  numhl = 'DiagnosticWarn',
+  texthl = 'DiagnosticSignWarn',
 })
 
-vim.fn.sign_define('LspDiagnosticsSignInformation', {
+vim.fn.sign_define('DiagnosticSignInfo', {
   text = '●',
-  numhl = 'LspDiagnosticsDefaultInformation',
+  numhl = 'DiagnosticInfo',
+  texthl = 'DiagnosticSignInfo',
 })
 
-vim.fn.sign_define('LspDiagnosticsSignHint', {
+vim.fn.sign_define('DiagnosticSignHint', {
   text = '✱',
-  numhl = 'LspDiagnosticsDefaultHint',
+  numhl = 'DiagnosticHint',
+  texthl = 'DiagnosticSignHint',
 })
 
 local on_attach = function(client, bufnr)
@@ -62,15 +66,16 @@ local on_attach = function(client, bufnr)
   end
 
   vim.cmd [[
-    highlight LspDiagnosticsVirtualTextError guifg=#fb4934
-    highlight LspDiagnosticsDefaultError guifg=#fb4934
-    highlight LspDiagnosticsFloatingError guifg=#ebdbb2
-    highlight LspDiagnosticsVirtualTextWarning guifg=#fabd2f
-    highlight LspDiagnosticsDefaultWarning guifg=#fabd2f
-    highlight LspDiagnosticsFloatingWarning guifg=#ebdbb2
-    highlight LspDiagnosticsVirtualTextHint guifg=#ebdbb2
-    highlight LspDiagnosticsDefaultHint guifg=#ebdbb2
-    highlight LspDiagnosticsFloatingHint guifg=#ebdbb2
+    highlight DiagnosticVirtualTextError guifg=#fb4934
+    highlight DiagnosticError guifg=#fb4934
+    highlight DiagnosticSignError guifg=#fb4934
+    highlight DiagnosticFloatingError guifg=#ebdbb2
+    highlight DiagnosticVirtualTextWarn guifg=#fabd2f
+    highlight DiagnosticWarn guifg=#fabd2f
+    highlight DiagnosticFloatingWarn guifg=#ebdbb2
+    highlight DiagnosticVirtualTextHint guifg=#ebdbb2
+    highlight DiagnosticHint guifg=#ebdbb2
+    highlight DiagnosticFloatingHint guifg=#ebdbb2
   ]]
 
   vim.opt_local.omnifunc = 'v:lua.vim.lsp.omnifunc'
