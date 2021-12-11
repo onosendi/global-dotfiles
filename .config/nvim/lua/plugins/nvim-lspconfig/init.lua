@@ -68,11 +68,12 @@ local on_attach = function(client, bufnr)
   vim.cmd [[
     highlight DiagnosticVirtualTextError guifg=#fb4934
     highlight DiagnosticError guifg=#fb4934
-    highlight DiagnosticSignError guifg=#fb4934
     highlight DiagnosticFloatingError guifg=#ebdbb2
+
     highlight DiagnosticVirtualTextWarn guifg=#fabd2f
     highlight DiagnosticWarn guifg=#fabd2f
     highlight DiagnosticFloatingWarn guifg=#ebdbb2
+
     highlight DiagnosticVirtualTextHint guifg=#ebdbb2
     highlight DiagnosticHint guifg=#ebdbb2
     highlight DiagnosticFloatingHint guifg=#ebdbb2
