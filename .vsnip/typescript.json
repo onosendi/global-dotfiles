@@ -4,6 +4,11 @@
     "body": "console.log($1);",
     "description": "Console log statement"
   },
+  "consoleError": {
+    "prefix": "ce",
+    "body": "console.error($1);",
+    "description": "Console error statement"
+  },
   "consoleWarn": {
     "prefix": "cw",
     "body": "console.warn($1);",
