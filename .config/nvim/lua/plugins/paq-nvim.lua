@@ -2,6 +2,7 @@ require 'paq' {
   'farmergreg/vim-lastplace';
   'hoob3rt/lualine.nvim';
   'hrsh7th/cmp-buffer';
+  'hrsh7th/cmp-calc';
   'hrsh7th/cmp-nvim-lsp';
   'hrsh7th/cmp-vsnip';
   'hrsh7th/nvim-cmp';
