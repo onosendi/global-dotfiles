@@ -57,9 +57,9 @@ local on_attach = function(client, bufnr)
   u.map('n', '<leader>ls', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
   u.map('n', '<leader>lt', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
   u.map('n', '<leader>lr', '<cmd>lua vim.lsp.buf.references()<CR>')
-  u.map('n', '<leader>lw', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics({ show_header = false })<CR>')
-  u.map('n', '<leader>lp', '<cmd>lua vim.lsp.diagnostic.goto_prev({ popup_opts = { show_header = false }})<CR>')
-  u.map('n', '<leader>ln', '<cmd>lua vim.lsp.diagnostic.goto_next({ popup_opts = { show_header = false }})<CR>')
+  u.map('n', '<leader>lw', '<cmd>lua vim.diagnostic.open_float()<CR>')
+  u.map('n', '<leader>lp', '<cmd>lua vim.diagnostic.goto_prev({ popup_opts = { show_header = false }})<CR>')
+  u.map('n', '<leader>ln', '<cmd>lua vim.diagnostic.goto_next({ popup_opts = { show_header = false }})<CR>')
 
   if client.resolved_capabilities.document_formatting then
     u.buf_augroup('LspFormatOnSave', 'BufWritePre', 'lua vim.lsp.buf.formatting_sync()')
