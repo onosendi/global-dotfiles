@@ -74,6 +74,10 @@ local on_attach = function(client, bufnr)
     highlight DiagnosticWarn guifg=#fabd2f
     highlight DiagnosticFloatingWarn guifg=#ebdbb2
 
+    highlight DiagnosticVirtualTextInfo guifg=#8ec07c
+    highlight DiagnosticInfo guifg=#8ec07c
+    highlight DiagnosticFloatingInfo guifg=#ebdbb2
+
     highlight DiagnosticVirtualTextHint guifg=#ebdbb2
     highlight DiagnosticHint guifg=#ebdbb2
     highlight DiagnosticFloatingHint guifg=#ebdbb2
