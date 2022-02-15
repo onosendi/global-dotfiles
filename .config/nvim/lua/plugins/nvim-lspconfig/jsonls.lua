@@ -41,12 +41,6 @@ M.setup = function(on_attach)
             },
             url = 'https://json.schemastore.org/babelrc.json',
           },
-          {
-            fileMatch = {
-              '.stylelintrc', '.stylelintrc.json','stylelint.config.json',
-            },
-            url = 'http://json.schemastore.org/stylelintrc.json',
-          }
         }
       }
     },
