@@ -32,7 +32,7 @@ M.setup = function(on_attach)
             url = 'https://json.schemastore.org/prettierrc.json',
           },
           {
-            fileMatch = {'.eslint*'},
+            fileMatch = {'.eslint*', 'eslint*'},
             url = 'https://json.schemastore.org/eslintrc.json',
           },
           {
