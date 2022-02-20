@@ -3,6 +3,7 @@
 -- npm i -g pyright
 -- npm i -g bash-language-server
 -- npm i -g eslint_d
+-- npm i -g stylelint
 local u = require('utils')
 local bashls = require'plugins.nvim-lspconfig.bashls'
 local cssls = require'plugins.nvim-lspconfig.cssls'
