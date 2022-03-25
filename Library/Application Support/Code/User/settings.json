@@ -13,11 +13,16 @@
     "editor.cursorBlinking": "solid",
     "editor.cursorStyle": "block",
     "security.workspace.trust.untrustedFiles": "open",
+    "files.associations": {
+      "*.mdx": "markdown"
+    },
 
     "vim.easymotion": true,
     "vim.incsearch": true,
     "vim.useCtrlKeys": true,
     "vim.hlsearch": true,
+    "vim.cursorStylePerMode.insert": "line-thin",
+    "vim.cursorStylePerMode.normal": "block",
     "vim.insertModeKeyBindings": [],
     "vim.normalModeKeyBindingsNonRecursive": [
       {
@@ -74,5 +79,6 @@
       },
     ],
     "vim.leader": "<space>",
-    "vim.handleKeys": {}
+    "vim.handleKeys": {},
+    "explorer.confirmDelete": false
 }
