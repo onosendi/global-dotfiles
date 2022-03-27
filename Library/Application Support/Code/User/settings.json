@@ -69,6 +69,11 @@
         "commands": ["workbench.view.scm"],
         "when": "workbench.scm.active"
       },
+      {
+        "before": ["<leader>", "t"],
+        "commands": ["workbench.view.explorer"],
+        "when": "viewContainer.workbench.view.explorer.enabled"
+      },
     ],
     "vim.leader": "<space>",
     "vim.handleKeys": {},
