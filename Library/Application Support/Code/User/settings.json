@@ -1,0 +1,92 @@
+{
+    "vim.easymotion": true,
+    "vim.incsearch": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.cursorStylePerMode.insert": "line-thin",
+    "vim.cursorStylePerMode.normal": "block",
+    "vim.insertModeKeyBindings": [],
+    "vim.normalModeKeyBindingsNonRecursive": [
+      {
+        "before": ["<leader>", "d", "c"],
+        "commands": [":nohl"]
+      },
+      {
+        "before": ["<leader>", "l", "f"],
+        "commands": ["eslint.executeAutofix"],
+        "when": "editorFocus"
+      },
+      {
+        "before": ["<leader>", "l", "p"],
+        "commands": ["editor.action.marker.prev"],
+        "when": "editorFocus"
+      },
+      {
+        "before": ["<leader>", "l", "n"],
+        "commands": ["editor.action.marker.next"],
+        "when": "editorFocus"
+      },
+      {
+        "before": ["<leader>", "l", "h"],
+        "commands": ["editor.action.showHover"],
+        "when": "editorTextFocus"
+      },
+      {
+        "before": ["<leader>", "l", "d"],
+        "commands": ["editor.action.revealDefinition"],
+        "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+      },
+      {
+        "before": ["<leader>", "l", "i"],
+        "commands": ["editor.action.goToImplementation"],
+        "when": "editorHasImplementationProvider && editorTextFocus && !isInEmbeddedEditor"
+      },
+      {
+        "before": ["<leader>", "l", "t"],
+        "commands": ["editor.action.goToTypeDefinition"],
+        "when": "editorTextFocus && !isInEmbeddedEditor"
+      },
+      {
+        "before": ["<leader>", "l", "o"],
+        "commands": ["editor.action.organizeImports"],
+        "when": "editorTextFocus && !editorReadonly && supportedCodeAction =~ /(\\s|^)source\\.organizeImports\\b/"
+      },
+      {
+        "before": ["<leader>", "l", "x"],
+        "commands": ["eslint.applyDisableLine"],
+        "when": ""
+      },
+      {
+        "before": ["<leader>", "f", "f"],
+        "commands": ["workbench.action.quickOpen"]
+      },
+      {
+        "before": ["<leader>", "f", "g"],
+        "commands": ["workbench.action.findInFiles"]
+      },
+    ],
+    "vim.leader": "<space>",
+    "vim.handleKeys": {},
+    "vim.smartRelativeLine": true,
+
+    "workbench.colorTheme": "Gruvbox Dark Medium",
+    "editor.tabSize": 2,
+    "editor.fontFamily": "SFMono-Medium",
+    "editor.fontSize": 14,
+    "terminal.integrated.fontSize": 14,
+    "terminal.integrated.fontFamily": "SFMono-Medium",
+    "editor.scrollBeyondLastLine": false,
+    "problems.showCurrentInStatus": true,
+    "problems.sortOrder": "position",
+    "editor.minimap.enabled": false,
+    "editor.cursorBlinking": "solid",
+    "editor.cursorStyle": "block",
+    "security.workspace.trust.untrustedFiles": "open",
+    "files.associations": {
+      "*.mdx": "markdown"
+    },
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "files.insertFinalNewline": true,
+    "workbench.editor.showTabs": false
+}
