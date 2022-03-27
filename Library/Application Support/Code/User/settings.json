@@ -64,6 +64,11 @@
         "before": ["<leader>", "f", "g"],
         "commands": ["workbench.action.findInFiles"]
       },
+      {
+        "before": ["<leader>", "g", "g"],
+        "commands": ["workbench.view.scm"],
+        "when": "workbench.scm.active"
+      },
     ],
     "vim.leader": "<space>",
     "vim.handleKeys": {},
