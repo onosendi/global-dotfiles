@@ -75,7 +75,6 @@
     "editor.fontSize": 14,
     "terminal.integrated.fontSize": 14,
     "terminal.integrated.fontFamily": "SFMono-Medium",
-    "editor.scrollBeyondLastLine": false,
     "problems.showCurrentInStatus": true,
     "problems.sortOrder": "position",
     "editor.minimap.enabled": false,
