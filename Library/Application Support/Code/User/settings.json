@@ -97,5 +97,12 @@
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
     "files.insertFinalNewline": true,
-    "workbench.editor.showTabs": false
+    "workbench.editor.showTabs": false,
+    "gitlens.codeLens.enabled": false,
+    "editor.folding": false,
+    "editor.roundedSelection": false,
+    "files.exclude": {
+      "**/.next": true,
+      "**/node_modules": true
+    }
 }
