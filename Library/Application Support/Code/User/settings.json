@@ -82,8 +82,7 @@
     "workbench.colorTheme": "Gruvbox Dark Medium",
     "editor.tabSize": 2,
     "editor.fontFamily": "SFMono-Medium",
-    "editor.fontSize": 14,
-    "terminal.integrated.fontSize": 14,
+    "terminal.integrated.fontSize": 13.5,
     "terminal.integrated.fontFamily": "SFMono-Medium",
     "problems.showCurrentInStatus": true,
     "problems.sortOrder": "position",
@@ -104,5 +103,10 @@
     "files.exclude": {
       "**/.next": true,
       "**/node_modules": true
-    }
+    },
+    "editor.fontSize": 13.5,
+    "debug.console.fontSize": 13.5,
+    "window.zoomLevel": -0.5,
+    "scm.inputFontSize": 13.5,
+    "markdown.preview.fontSize": 13.5
 }
