@@ -79,7 +79,7 @@
     "vim.handleKeys": {},
     "vim.smartRelativeLine": true,
 
-    "workbench.colorTheme": "Gruvbox Dark Medium",
+    "workbench.colorTheme": "Gruvbox Dark Soft",
     "editor.tabSize": 2,
     "editor.fontFamily": "SFMono-Medium",
     "terminal.integrated.fontSize": 13.5,
@@ -108,5 +108,6 @@
     "debug.console.fontSize": 13.5,
     "window.zoomLevel": -0.5,
     "scm.inputFontSize": 13.5,
-    "markdown.preview.fontSize": 13.5
+    "markdown.preview.fontSize": 13.5,
+    "editor.fontWeight": "normal"
 }
