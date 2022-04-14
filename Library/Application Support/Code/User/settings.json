@@ -106,8 +106,9 @@
     },
     "editor.fontSize": 13.5,
     "debug.console.fontSize": 13.5,
-    "window.zoomLevel": -0.5,
+    "window.zoomLevel": 0.5,
     "scm.inputFontSize": 13.5,
     "markdown.preview.fontSize": 13.5,
-    "editor.fontWeight": "normal"
+    "editor.fontWeight": "normal",
+    "git.autofetch": true
 }
