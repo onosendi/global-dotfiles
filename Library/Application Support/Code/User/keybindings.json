@@ -26,7 +26,8 @@
   },
   {
     "key": "ctrl+j",
-    "command": "workbench.action.terminal.focus"
+    "command": "workbench.action.terminal.focus",
+    "when": "activePanel"
   },
   {
     "key": "ctrl+k",
