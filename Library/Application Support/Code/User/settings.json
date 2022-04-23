@@ -111,5 +111,6 @@
     "editor.fontWeight": "normal",
     "git.autofetch": true,
     "window.zoomLevel": 0.3,
-    "editor.lineHeight": 18
+    "editor.lineHeight": 18,
+    "editor.suggest.snippetsPreventQuickSuggestions": false
 }
