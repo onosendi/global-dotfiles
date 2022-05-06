@@ -103,7 +103,8 @@
     "files.exclude": {
       "**/.next": true,
       "**/node_modules": true,
-      "**/.nyc_output": true
+      "**/.nyc_output": true,
+      "**/coverage": true
     },
     "editor.fontSize": 13.5,
     "debug.console.fontSize": 13.5,
