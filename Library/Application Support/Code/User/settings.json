@@ -102,7 +102,8 @@
     "editor.roundedSelection": false,
     "files.exclude": {
       "**/.next": true,
-      "**/node_modules": true
+      "**/node_modules": true,
+      "**/.nyc_output": true
     },
     "editor.fontSize": 13.5,
     "debug.console.fontSize": 13.5,
@@ -110,7 +111,7 @@
     "markdown.preview.fontSize": 13.5,
     "editor.fontWeight": "normal",
     "git.autofetch": true,
-    "window.zoomLevel": 0.3,
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
     "editor.lineHeight": 18,
-    "editor.suggest.snippetsPreventQuickSuggestions": false
+    "window.zoomLevel": -0.6
 }
