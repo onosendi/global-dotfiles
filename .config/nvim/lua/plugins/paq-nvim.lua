@@ -25,4 +25,5 @@ require 'paq' {
   'tpope/vim-fugitive';
   'vijaymarupudi/nvim-fzf';
   'Yggdroot/indentLine';
+  'windwp/nvim-autopairs';
 }
