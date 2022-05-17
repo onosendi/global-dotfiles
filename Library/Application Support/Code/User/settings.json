@@ -114,6 +114,6 @@
     "git.autofetch": true,
     "editor.suggest.snippetsPreventQuickSuggestions": false,
     "editor.lineHeight": 18,
-    "window.zoomLevel": 0.3,
-    "editor.bracketPairColorization.enabled": false
+    "editor.bracketPairColorization.enabled": false,
+    "window.zoomLevel": 0.3
 }
