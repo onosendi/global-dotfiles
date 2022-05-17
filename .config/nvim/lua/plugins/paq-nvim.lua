@@ -24,6 +24,6 @@ require 'paq' {
   'tpope/vim-repeat';
   'tpope/vim-fugitive';
   'vijaymarupudi/nvim-fzf';
-  'Yggdroot/indentLine';
   'windwp/nvim-autopairs';
+  'lukas-reineke/indent-blankline.nvim';
 }
