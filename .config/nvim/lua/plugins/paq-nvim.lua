@@ -26,4 +26,5 @@ require 'paq' {
   'vijaymarupudi/nvim-fzf';
   'windwp/nvim-autopairs';
   'lukas-reineke/indent-blankline.nvim';
+  'dylnmc/synstack.vim';
 }
