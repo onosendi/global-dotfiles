@@ -12,6 +12,7 @@ local jsonls = require'plugins.nvim-lspconfig.jsonls'
 local null_ls = require'plugins.nvim-lspconfig.null-ls'
 local pyright = require'plugins.nvim-lspconfig.pyright'
 local tsserver = require'plugins.nvim-lspconfig.tsserver'
+local eslint = require'plugins.nvim-lspconfig.eslint'
 
 vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics,
@@ -94,3 +95,4 @@ jsonls.setup(on_attach)
 null_ls.setup(on_attach)
 pyright.setup(on_attach)
 tsserver.setup(on_attach)
+eslint.setup(on_attach)
