@@ -13,6 +13,7 @@ local null_ls = require'plugins.nvim-lspconfig.null-ls'
 local pyright = require'plugins.nvim-lspconfig.pyright'
 local tsserver = require'plugins.nvim-lspconfig.tsserver'
 local eslint = require'plugins.nvim-lspconfig.eslint'
+local hls = require'plugins.nvim-lspconfig.hls'
 
 vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics,
@@ -96,3 +97,4 @@ null_ls.setup(on_attach)
 pyright.setup(on_attach)
 tsserver.setup(on_attach)
 eslint.setup(on_attach)
+hls.setup(on_attach)
