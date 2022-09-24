@@ -1,4 +1,5 @@
 require 'paq' {
+  'morhetz/gruvbox';
   'farmergreg/vim-lastplace';
   'hoob3rt/lualine.nvim';
   'hrsh7th/cmp-buffer';
@@ -12,7 +13,6 @@ require 'paq' {
   'jose-elias-alvarez/nvim-lsp-ts-utils';
   'kyazdani42/nvim-web-devicons';
   'kyazdani42/nvim-tree.lua';
-  'morhetz/gruvbox';
   'neovim/nvim-lspconfig';
   'norcalli/nvim-colorizer.lua';
   'nvim-lua/plenary.nvim';

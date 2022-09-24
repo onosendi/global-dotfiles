@@ -1,4 +1,3 @@
-require'plugins.gruvbox'
 require'plugins.paq-nvim'
 require'plugins.nvim-lspconfig'
 require'plugins.nvim-cmp'

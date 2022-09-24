@@ -1,4 +1,5 @@
 vim.cmd [[
+  colorscheme gruvbox
   highlight CursorLineNr guibg=none
 ]]
 
