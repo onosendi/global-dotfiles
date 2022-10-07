@@ -79,7 +79,7 @@
     "vim.handleKeys": {},
     "vim.smartRelativeLine": true,
 
-    "workbench.colorTheme": "Gruvbox Dark Soft",
+    "workbench.colorTheme": "Default Dark+",
     "editor.tabSize": 2,
     "editor.fontFamily": "SFMono-Medium",
     "terminal.integrated.fontSize": 13.5,

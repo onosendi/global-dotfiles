@@ -68,23 +68,24 @@ local on_attach = function(client, bufnr)
     u.buf_augroup('LspFormatOnSave', 'BufWritePre', 'lua vim.lsp.buf.formatting_sync()')
   end
 
-  vim.cmd [[
-    highlight DiagnosticVirtualTextError guifg=#fb4934
-    highlight DiagnosticError guifg=#fb4934
-    highlight DiagnosticFloatingError guifg=#ebdbb2
+  -- Gruvbox
+  -- vim.cmd [[
+  --   highlight DiagnosticVirtualTextError guifg=#fb4934
+  --   highlight DiagnosticError guifg=#fb4934
+  --   highlight DiagnosticFloatingError guifg=#ebdbb2
 
-    highlight DiagnosticVirtualTextWarn guifg=#fabd2f
-    highlight DiagnosticWarn guifg=#fabd2f
-    highlight DiagnosticFloatingWarn guifg=#ebdbb2
+  --   highlight DiagnosticVirtualTextWarn guifg=#fabd2f
+  --   highlight DiagnosticWarn guifg=#fabd2f
+  --   highlight DiagnosticFloatingWarn guifg=#ebdbb2
 
-    highlight DiagnosticVirtualTextInfo guifg=#8ec07c
-    highlight DiagnosticInfo guifg=#8ec07c
-    highlight DiagnosticFloatingInfo guifg=#ebdbb2
+  --   highlight DiagnosticVirtualTextInfo guifg=#8ec07c
+  --   highlight DiagnosticInfo guifg=#8ec07c
+  --   highlight DiagnosticFloatingInfo guifg=#ebdbb2
 
-    highlight DiagnosticVirtualTextHint guifg=#ebdbb2
-    highlight DiagnosticHint guifg=#ebdbb2
-    highlight DiagnosticFloatingHint guifg=#ebdbb2
-  ]]
+  --   highlight DiagnosticVirtualTextHint guifg=#ebdbb2
+  --   highlight DiagnosticHint guifg=#ebdbb2
+  --   highlight DiagnosticFloatingHint guifg=#ebdbb2
+  -- ]]
 
   vim.opt_local.omnifunc = 'v:lua.vim.lsp.omnifunc'
 end

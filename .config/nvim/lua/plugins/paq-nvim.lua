@@ -1,5 +1,6 @@
 require 'paq' {
   'morhetz/gruvbox';
+  'dracula/vim';
   'farmergreg/vim-lastplace';
   'hoob3rt/lualine.nvim';
   'hrsh7th/cmp-buffer';
