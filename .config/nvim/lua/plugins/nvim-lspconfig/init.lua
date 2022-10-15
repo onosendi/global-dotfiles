@@ -64,7 +64,7 @@ local on_attach = function(client, bufnr)
   u.map('n', '<leader>lp', '<cmd>lua vim.diagnostic.goto_prev({ popup_opts = { show_header = false }})<CR>')
   u.map('n', '<leader>ln', '<cmd>lua vim.diagnostic.goto_next({ popup_opts = { show_header = false }})<CR>')
 
-  if client.resolved_capabilities.document_formatting then
+  if client.server_capabilities.documentFormattingProvider then
     u.buf_augroup('LspFormatOnSave', 'BufWritePre', 'lua vim.lsp.buf.formatting_sync()')
   end
 
