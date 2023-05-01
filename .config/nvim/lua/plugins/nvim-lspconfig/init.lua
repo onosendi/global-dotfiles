@@ -91,7 +91,7 @@ local on_attach = function(client, bufnr)
 end
 
 bashls.setup(on_attach)
-cssls.setup(on_attach)
+-- cssls.setup(on_attach)
 html.setup(on_attach)
 jsonls.setup(on_attach)
 null_ls.setup(on_attach)
