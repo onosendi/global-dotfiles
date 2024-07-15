@@ -1,12 +1,42 @@
-require'nvim-tree'.setup {
-  view = {
-    relativenumber = true,
-    signcolumn = 'no',
-    width = 35,
-  },
+return {
+  "nvim-tree/nvim-tree.lua",
+  dependencies = "nvim-tree/nvim-web-devicons",
+  config = function()
+    local nvimtree = require("nvim-tree")
+
+    vim.g.loaded_netrw = 1
+    vim.g.loaded_netrwPlugin = 1
+
+    nvimtree.setup({
+      view = {
+        width = 35,
+        relativenumber = true,
+      },
+      renderer = {
+        indent_markers = {
+          enable = true,
+        },
+      },
+      filters = {
+        custom = {},
+      },
+      git = {
+        ignore = false,
+      },
+    })
+
+    local keymap = vim.keymap
+
+    -- toggle file explorer
+    keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" })
+
+    -- toggle file explorer on current file
+    keymap.set("n", "<leader>ef", "<cmd>NvimTreeFindFileToggle<CR>", { desc = "Toggle file explorer on current file" })
+
+    -- collapse file explorer)
+    keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<CR>", { desc = "Collapse file explorer" })
+
+    -- refresh file explorer
+    keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer" })
+  end
 }
-
-local map = vim.api.nvim_set_keymap
-local options = { noremap = true, silent = true }
-
-map('n', '<Leader>t', ':NvimTreeToggle<CR>', options)

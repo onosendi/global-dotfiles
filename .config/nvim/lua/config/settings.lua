@@ -1,0 +1,74 @@
+-- Set the background theme to dark
+vim.opt.background = 'dark'
+
+-- Disable backup file creation
+vim.opt.backup = false
+
+-- Set the command line height to 1 line
+vim.opt.cmdheight = 1
+
+-- Use spaces instead of tabs
+vim.opt.expandtab = true
+
+-- Support multiple file formats
+vim.opt.fileformats = { 'unix', 'mac', 'dos' }
+
+-- Disable code folding by default
+vim.opt.foldenable = false
+
+-- Allow buffer switching without saving
+vim.opt.hidden = true
+
+-- Set command history to remember 1000 commands
+vim.opt.history = 1000
+
+-- Ignore case in search patterns
+vim.opt.ignorecase = true
+
+-- Enable lazy redraw for faster macros and scripts
+vim.opt.lazyredraw = true
+
+-- Enable regular expression magic
+vim.opt.magic = true
+
+-- Display line numbers
+vim.opt.number = true
+
+-- Display relative line numbers
+vim.opt.relativenumber = true
+
+-- Number of spaces to use for each step of (auto)indent
+vim.opt.shiftwidth = 2
+
+-- Disable highlighting matching parentheses
+vim.opt.showmatch = false
+
+-- Display the sign column with line numbers
+vim.opt.signcolumn = 'number'
+
+-- Override ignorecase if search pattern contains uppercase letters
+vim.opt.smartcase = true
+
+-- Number of spaces that a <Tab> counts for while performing editing operations
+vim.opt.softtabstop = 2
+
+-- Disable swap file creation
+vim.opt.swapfile = false
+
+-- Number of spaces that a <Tab> in the file counts for
+vim.opt.tabstop = 2
+
+-- Enable true color support
+vim.opt.termguicolors = true
+
+-- Allow specified keys to move to the previous/next line when at the beginning/end of a line
+vim.opt.whichwrap = vim.opt.whichwrap:append('<,>,[,]')
+
+-- Enable command-line completion mode
+vim.opt.wildmenu = true
+
+-- Disable line wrapping
+vim.opt.wrap = false
+
+-- Disable write backup file creation
+vim.opt.writebackup = false
