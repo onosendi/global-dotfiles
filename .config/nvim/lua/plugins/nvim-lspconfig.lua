@@ -10,8 +10,18 @@ return {
     { "folke/neodev.nvim", opts = {} },
   },
   config = function()
-    -- import lspconfig plugin
     local lspconfig = require("lspconfig")
+
+    lspconfig.eslint.setup({
+      on_attach = function(client, bufnr)
+
+        -- Auto fix ESLint errors
+        vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>lf', '<cmd>lua vim.lsp.buf.code_action({ apply = true, context = { only = { "source.fixAll.eslint" } } })<CR>', {noremap = true, silent = true})
+        vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>lr', '<cmd>lua vim.lsp.buf.code_action({ apply = true, context = { only = { "source.removeUnusedImports.ts" } } })<CR>', {noremap = true, silent = true})
+        vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>li', '<cmd>lua vim.lsp.buf.code_action({ apply = true, context = { only = { "source.addMissingImports.ts" } } })<CR>', {noremap = true, silent = true})
+        vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>lo', '<cmd>lua vim.lsp.buf.execute_command({command = "_typescript.organizeImports", arguments = {vim.api.nvim_buf_get_name(0)}})<CR>', {noremap = true, silent = true})
+      end,
+    })
 
     -- import mason_lspconfig plugin
     local mason_lspconfig = require("mason-lspconfig")
@@ -75,50 +85,65 @@ return {
 
     -- Change the Diagnostic symbols in the sign column (gutter)
     -- (not in youtube nvim video)
-    local signs = { Error = " ", Warn = " ", Hint = "H", Info = " " }
+    local signs = { Error = "", Warn = "", Hint = "", Info = "" }
     for type, icon in pairs(signs) do
       local hl = "DiagnosticSign" .. type
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     end
 
+    local function filter_diagnostics(diagnostics)
+      local filtered_diagnostics = {}
+      for _, diagnostic in ipairs(diagnostics) do
+          if diagnostic.severity ~= vim.lsp.protocol.DiagnosticSeverity.Hint then
+              table.insert(filtered_diagnostics, diagnostic)
+          end
+      end
+      return filtered_diagnostics
+    end
+
+    vim.lsp.handlers["textDocument/publishDiagnostics"] = function(uri, result, ctx, config)
+      result.diagnostics = filter_diagnostics(result.diagnostics)
+      vim.lsp.diagnostic.on_publish_diagnostics(uri, result, ctx, config)
+    end
+
+    vim.diagnostic.config({
+      virtual_text = false,
+      signs = true,
+      underline = true,
+      update_in_insert = true,
+      severity_sort = true,
+    })
+
     mason_lspconfig.setup_handlers({
       -- default handler for installed servers
       function(server_name)
+        print(server_name)
         lspconfig[server_name].setup({
           capabilities = capabilities,
         })
       end,
-      ["svelte"] = function()
-        -- configure svelte server
-        lspconfig["svelte"].setup({
+      ["html"] = function()
+        lspconfig["html"].setup({
           capabilities = capabilities,
-          on_attach = function(client, bufnr)
-            vim.api.nvim_create_autocmd("BufWritePost", {
-              pattern = { "*.js", "*.ts" },
-              callback = function(ctx)
-                -- Here use ctx.match instead of ctx.file
-                client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
-              end,
-            })
-          end,
         })
       end,
-      ["graphql"] = function()
-        -- configure graphql language server
-        lspconfig["graphql"].setup({
+      ["pyright"] = function()
+        lspconfig["pyright"].setup({
           capabilities = capabilities,
-          filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
+        })
+      end,
+      ["cssls"] = function()
+        lspconfig["cssls"].setup({
+          capabilities = capabilities,
         })
       end,
       ["emmet_ls"] = function()
-        -- configure emmet language server
         lspconfig["emmet_ls"].setup({
           capabilities = capabilities,
-          filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
+          filetypes = { "html", "typescriptreact", "javascriptreact", "css", "scss" },
         })
       end,
       ["lua_ls"] = function()
-        -- configure lua server (with special settings)
         lspconfig["lua_ls"].setup({
           capabilities = capabilities,
           settings = {

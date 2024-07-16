@@ -1,5 +1,5 @@
 -- Set the background theme to dark
-vim.opt.background = 'dark'
+vim.opt.background = "dark"
 
 -- Disable backup file creation
 vim.opt.backup = false
@@ -11,7 +11,7 @@ vim.opt.cmdheight = 1
 vim.opt.expandtab = true
 
 -- Support multiple file formats
-vim.opt.fileformats = { 'unix', 'mac', 'dos' }
+vim.opt.fileformats = { "unix", "mac", "dos" }
 
 -- Disable code folding by default
 vim.opt.foldenable = false
@@ -44,7 +44,7 @@ vim.opt.shiftwidth = 2
 vim.opt.showmatch = false
 
 -- Display the sign column with line numbers
-vim.opt.signcolumn = 'number'
+vim.opt.signcolumn = "yes"
 
 -- Override ignorecase if search pattern contains uppercase letters
 vim.opt.smartcase = true
@@ -62,7 +62,7 @@ vim.opt.tabstop = 2
 vim.opt.termguicolors = true
 
 -- Allow specified keys to move to the previous/next line when at the beginning/end of a line
-vim.opt.whichwrap = vim.opt.whichwrap:append('<,>,[,]')
+vim.opt.whichwrap = vim.opt.whichwrap:append("<,>,[,]")
 
 -- Enable command-line completion mode
 vim.opt.wildmenu = true

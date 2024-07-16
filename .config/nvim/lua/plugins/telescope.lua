@@ -15,26 +15,22 @@ return {
         path_display = { "smart" },
         mappings = {
           i = {
-            -- move to prev result
             ["<C-k>"] = actions.move_selection_previous,
-
-            -- move to next result
             ["<C-j>"] = actions.move_selection_next,
-
-            ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
           },
         },
       },
     })
 
-    telescope.load_extension("fzf")
+    local builtin = require('telescope.builtin')
 
-    -- set keymaps
-    local keymap = vim.keymap -- for conciseness
+    local map = vim.keymap.set
 
-    keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
-    keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy find recent files" })
-    keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
-    keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
+    map("n", "<leader>ff", builtin.find_files, { desc = "Lists files in your current working directory, respects .gitignore" })
+    map("n", "<leader>fb", builtin.buffers, { desc = "Lists open buffers in current neovim instance" })
+    map("n", "<leader>fg", builtin.git_files, { desc = "Fuzzy search through the output of git ls-files command, respects .gitignore" })
+    map("n", "<leader>fr", builtin.oldfiles, { desc = "Lists previously open files" })
+    map("n", "<leader>fs", builtin.live_grep, { desc = "Search for a string in your current working directory and get results live as you type, respects .gitignore. (Requires ripgrep)" })
+    map("n", "<leader>fc", builtin.grep_string, { desc = "Searches for the string under your cursor or selection in your current working directory" })
   end,
 }

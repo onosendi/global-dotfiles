@@ -10,6 +10,5 @@ return {
     { "<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<CR>", desc = "Open trouble document diagnostics" },
     { "<leader>xs", "<cmd>Trouble quickfix toggle<CR>", desc = "Open trouble quickfix list" },
     { "<leader>xl", "<cmd>Trouble loclist toggle<CR>", desc = "Open trouble location list" },
-    { "<leader>xQ", "<cmd>Trouble todo toggle<CR>", desc = "Open todos in trouble" },
   },
 }
