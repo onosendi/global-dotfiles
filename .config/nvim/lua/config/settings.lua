@@ -72,3 +72,38 @@ vim.opt.wrap = false
 
 -- Disable write backup file creation
 vim.opt.writebackup = false
+
+-- This autocommand is triggered after a buffer is read (BufReadPost event). 
+-- It inspects the first 100 lines of the buffer to determine the predominant 
+-- indentation style used (tabs vs spaces). Based on the analysis, it sets the 
+-- buffer's tab settings to match the detected style.
+vim.api.nvim_create_autocmd("BufReadPost", {
+    callback = function()
+      local lines = vim.api.nvim_buf_get_lines(0, 0, 100, false)
+      local tabs, spaces = 0, 0
+      local space_indent = 0
+
+      for _, line in ipairs(lines) do
+          local first_char = line:match("^%s")
+          if first_char == "\t" then
+              tabs = tabs + 1
+          elseif first_char == " " then
+              spaces = spaces + 1
+              local indent = line:match("^ +"):len()
+              if indent > 1 and (space_indent == 0 or indent < space_indent) then
+                  space_indent = indent
+              end
+          end
+      end
+
+      if tabs > spaces then
+          vim.bo.expandtab = false
+          vim.bo.tabstop = 8
+          vim.bo.shiftwidth = 8
+      else
+          vim.bo.expandtab = true
+          vim.bo.tabstop = space_indent
+          vim.bo.shiftwidth = space_indent
+      end
+    end,
+})
