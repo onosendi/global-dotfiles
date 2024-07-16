@@ -3,11 +3,8 @@ return {
   config = function()
     local gitsigns = require('gitsigns')
 
-    gitsigns.setup({
-    })
+    gitsigns.setup({})
 
-    local map = vim.keymap.set
-
-    map('n', '<Leader>gs', ':Gitsigns toggle_signs<CR>')
+    vim.keymap.set('n', '<Leader>gs', ':Gitsigns toggle_signs<CR>')
   end,
 }

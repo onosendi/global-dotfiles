@@ -10,10 +10,5 @@ return {
       shading_factor = 0,
       open_mapping = [[<c-\>]]
     })
-
-    -- local keymap = vim.keymap
-    --
-    -- -- toggle file explorer
-    -- keymap.set("n", "<leader>t", ":ToggleTerm<CR>", { desc = "Toggle file explorer" })
   end,
 }
