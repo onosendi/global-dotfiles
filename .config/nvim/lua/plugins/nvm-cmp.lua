@@ -4,6 +4,7 @@ return {
   dependencies = {
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
+    "hrsh7th/cmp-calc",
     {
       "L3MON4D3/LuaSnip",
       -- follow latest release.
@@ -11,16 +12,17 @@ return {
       version = "v2.*",
       -- install jsregexp (optional!).
       build = "make install_jsregexp",
+      config = function()
+        require('config.snippets')
+      end,
     },
-    "saadparwaiz1/cmp_luasnip", -- for autocompletion
+    -- for autocompletion
+    "saadparwaiz1/cmp_luasnip",
   },
   config = function()
     local cmp = require("cmp")
 
     local luasnip = require("luasnip")
-
-    -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
-    require("luasnip.loaders.from_vscode").lazy_load()
 
     cmp.setup({
       completion = {
@@ -46,6 +48,7 @@ return {
         { name = "luasnip" },
         { name = "buffer" },
         { name = "path" },
+        { name = "calc" },
       }),
     })
   end,
