@@ -8,6 +8,9 @@ local map = vim.api.nvim_set_keymap
 -- Clear search highlighting
 map('n', '<Leader>dc', ':let @/=""<CR>', { noremap = true, silent = true })
 
+-- Highlight all words under cursor
+map('n', '<Leader>dw', ':let @/=expand("<cword>")<CR>', { noremap = true, silent = true })
+
 -- Navigate between windows using Ctrl + arrow keys
 map('n', '<C-J>', '<C-W><C-J>', { noremap = true })
 map('n', '<C-K>', '<C-W><C-K>', { noremap = true })

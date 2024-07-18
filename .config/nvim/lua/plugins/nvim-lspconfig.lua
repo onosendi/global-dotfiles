@@ -11,11 +11,9 @@ return {
   },
   config = function()
     local lspconfig = require("lspconfig")
-
+    --
     lspconfig.eslint.setup({
       on_attach = function(client, bufnr)
-
-        -- Auto fix ESLint errors
         vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>lf', '<cmd>lua vim.lsp.buf.code_action({ apply = true, context = { only = { "source.fixAll.eslint" } } })<CR>', {noremap = true, silent = true})
         vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>lr', '<cmd>lua vim.lsp.buf.code_action({ apply = true, context = { only = { "source.removeUnusedImports.ts" } } })<CR>', {noremap = true, silent = true})
         vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>li', '<cmd>lua vim.lsp.buf.code_action({ apply = true, context = { only = { "source.addMissingImports.ts" } } })<CR>', {noremap = true, silent = true})
