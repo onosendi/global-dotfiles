@@ -1,2 +1,0 @@
-- Snippets
-- Eslint is enabled twice (showing errors twice)
