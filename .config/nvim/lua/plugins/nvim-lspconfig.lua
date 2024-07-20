@@ -25,49 +25,48 @@ return {
       group = vim.api.nvim_create_augroup("UserLspConfig", {}),
       callback = function(ev)
         -- See `:help vim.lsp.*` for documentation on any of the below functions
-        local opts = { buffer = ev.buf, noremap=true, silent=true }
 
         -- Restart LSP
-        vim.keymap.set('n', '<leader>lr', ":LspRestart<CR>", opts)
+        vim.keymap.set('n', '<leader>lr', ":LspRestart<CR>", { buffer = ev.buf, noremap=true, silent=true, desc = "Restart LSP server" })
 
         -- Go to definition
-        vim.keymap.set('n', 'gd', ":Telescope lsp_definitions<CR>", opts)
+        vim.keymap.set('n', 'gd', ":Telescope lsp_definitions<CR>", { buffer = ev.buf, noremap=true, silent=true, desc = "Go to definition" })
 
         -- Go to type definition
-        vim.keymap.set('n', 'gt', ":Telescope lsp_type_definitions<CR>", opts)
+        vim.keymap.set('n', 'gt', ":Telescope lsp_type_definitions<CR>", { buffer = ev.buf, noremap=true, silent=true, desc = "Go to type definition" })
 
         -- Go to declaration
-        vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+        vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { buffer = ev.buf, noremap=true, silent=true, desc = "Go to declaration" })
 
         -- Float diagnostics
-        vim.keymap.set('n', '<leader>D', ":Telescope diagnostics bufnr=0<CR>", opts)
+        vim.keymap.set('n', '<leader>D', ":Telescope diagnostics bufnr=0<CR>", { buffer = ev.buf, noremap=true, silent=true, desc = "Show diagnostics for current buffer" })
 
         -- Show hover information
-        vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+        vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = ev.buf, noremap=true, silent=true, desc = "Show hover information" })
 
         -- Go to implementation
-        vim.keymap.set('n', 'gi', ":Telescope lsp_implementations<CR>", opts)
+        vim.keymap.set('n', 'gi', ":Telescope lsp_implementations<CR>", { buffer = ev.buf, noremap=true, silent=true, desc = "Go to implementation" })
 
         -- Show signature help
-        vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+        vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, { buffer = ev.buf, noremap=true, silent=true, desc = "Show signature help" })
 
         -- Rename symbol
-        vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
+        vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { buffer = ev.buf, noremap=true, silent=true, desc = "Rename symbol" })
 
         -- Code actions
-        vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
+        vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { buffer = ev.buf, noremap=true, silent=true, desc = "Show code actions" })
 
         -- Go to references
-        vim.keymap.set('n', 'gr', ":Telescope lsp_references<CR>", opts)
+        vim.keymap.set('n', 'gr', ":Telescope lsp_references<CR>", { buffer = ev.buf, noremap=true, silent=true, desc = "Go to references" })
 
         -- Show line diagnostics in a floating window
-        vim.keymap.set('n', '<leader>ld', vim.diagnostic.open_float, opts)
+        vim.keymap.set('n', '<leader>ld', vim.diagnostic.open_float, { buffer = ev.buf, noremap=true, silent=true, desc = "Show line diagnostics" })
 
         -- Go to next diagnostic
-        vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+        vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { buffer = ev.buf, noremap=true, silent=true, desc = "Go to previous diagnostic" })
 
         -- Go to previous diagnostic
-        vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+        vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { buffer = ev.buf, noremap=true, silent=true, desc = "Go to next diagnostic" })
       end,
     })
 
@@ -129,7 +128,7 @@ return {
         lspconfig["tsserver"].setup({
           capabilities = capabilities,
           filetypes = { "javascript", "typescript", "typescriptreact", "javascriptreact" },
-          on_attach = function(client, bufnr)
+          on_attach = function(_, bufnr)
             vim.keymap.set('n', '<leader>oi', function()
               vim.lsp.buf.execute_command({
                 command = "_typescript.organizeImports",
@@ -159,14 +158,14 @@ return {
                 -- Could not find a declaration file for...
                 7016,
               }
-              
+
               for _, diagnostic in ipairs(result.diagnostics) do
                 -- Check if the diagnostic code is not in the ignored_codes list
                 if not vim.tbl_contains(ignored_codes, diagnostic.code) then
                   table.insert(filtered_diagnostics, diagnostic)
                 end
               end
-              
+
               result.diagnostics = filtered_diagnostics
               vim.lsp.diagnostic.on_publish_diagnostics(_, result, ctx, config)
             end,
@@ -177,7 +176,7 @@ return {
         lspconfig.eslint.setup({
           capabilities = capabilities,
           filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
-          on_attach = function(client, bufnr)
+          on_attach = function(_, bufnr)
             vim.keymap.set('n', '<leader>fa', function()
               vim.lsp.buf.code_action({
                 apply = true,
