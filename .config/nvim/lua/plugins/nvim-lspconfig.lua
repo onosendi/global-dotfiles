@@ -97,13 +97,21 @@ return {
 
     mason_lspconfig.setup({
       ensure_installed = {
+        "autotools_ls",
+        "bashls",
         "cssls",
+        "dockerls",
+        "docker_compose_language_service",
         "emmet_ls",
-        "html",
-        "lua_ls",
-        "pyright",
-        "tsserver",
         "eslint",
+        "html",
+        "jsonls",
+        "lua_ls",
+        "nginx_language_server",
+        "pyright",
+        "taplo",
+        "tsserver",
+        "yamlls",
       },
     })
 

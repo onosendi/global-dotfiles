@@ -75,3 +75,6 @@ vim.opt.writebackup = false
 
 -- Highlight current cursor line
 vim.opt.cursorline = true
+
+-- Enable system clipboard integration
+vim.opt.clipboard:append("unnamedplus")

@@ -6,7 +6,8 @@ vim.g.maplocalleader = "\\"
 vim.keymap.set('n', '<leader>ch', ':let @/=""<CR>')
 
 -- Highlight all words under cursor
-vim.keymap.set('n', '<leader>hw', ':let @/=expand("<cword>")<CR>')
+-- vim.keymap.set('n', '<leader>hw', ':let @/=expand("<cword>")<CR>')
+vim.keymap.set('n', '<leader>hw', ':let @/=expand("<cword>")<CR>:set hlsearch<CR>')
 
 -- Navigate between windows using Ctrl + arrow keys
 vim.keymap.set('n', '<C-J>', '<C-W><C-J>')
