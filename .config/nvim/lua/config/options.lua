@@ -72,3 +72,6 @@ vim.opt.wrap = false
 
 -- Disable write backup file creation
 vim.opt.writebackup = false
+
+-- Highlight current cursor line
+vim.opt.cursorline = true

@@ -1,5 +1,5 @@
 require("config.keymaps")
-require("config.settings")
+require("config.options")
 require("config.lazy")
 require("lazy").setup("plugins", {
   change_detection = {

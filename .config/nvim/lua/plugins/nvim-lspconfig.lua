@@ -6,13 +6,14 @@ return {
   },
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
     { "antosha417/nvim-lsp-file-operations", config = true },
     { "folke/neodev.nvim", opts = {} },
   },
   config = function()
     local lspconfig = require("lspconfig")
-
-    -- import mason_lspconfig plugin
+    local mason = require("mason")
     local mason_lspconfig = require("mason-lspconfig")
 
     -- import cmp-nvim-lsp plugin
@@ -70,30 +71,10 @@ return {
       end,
     })
 
-    -- used to enable autocompletion (assign to every lsp server config)
-    local capabilities = cmp_nvim_lsp.default_capabilities()
-
-    -- Change the Diagnostic symbols in the sign column (gutter)
-    -- (not in youtube nvim video)
     local signs = { Error = "", Warn = "", Hint = "", Info = "" }
     for type, icon in pairs(signs) do
       local hl = "DiagnosticSign" .. type
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-    end
-
-    local function filter_diagnostics(diagnostics)
-      local filtered_diagnostics = {}
-      for _, diagnostic in ipairs(diagnostics) do
-          if diagnostic.severity ~= vim.lsp.protocol.DiagnosticSeverity.Hint then
-              table.insert(filtered_diagnostics, diagnostic)
-          end
-      end
-      return filtered_diagnostics
-    end
-
-    vim.lsp.handlers["textDocument/publishDiagnostics"] = function(uri, result, ctx, config)
-      result.diagnostics = filter_diagnostics(result.diagnostics)
-      vim.lsp.diagnostic.on_publish_diagnostics(uri, result, ctx, config)
     end
 
     vim.diagnostic.config({
@@ -103,6 +84,31 @@ return {
       update_in_insert = true,
       severity_sort = true,
     })
+
+    mason.setup({
+      ui = {
+        icons = {
+          package_installed = "✓",
+          package_pending = "➜",
+          package_uninstalled = "✗",
+        },
+      },
+    })
+
+    mason_lspconfig.setup({
+      ensure_installed = {
+        "cssls",
+        "emmet_ls",
+        "html",
+        "lua_ls",
+        "pyright",
+        "tsserver",
+        "eslint",
+      },
+    })
+
+    -- used to enable autocompletion (assign to every lsp server config)
+    local capabilities = cmp_nvim_lsp.default_capabilities()
 
     mason_lspconfig.setup_handlers({
       -- default handler for installed servers
@@ -137,6 +143,26 @@ return {
               })
             end, { buffer = bufnr, desc = "Add missing imports" })
           end,
+          handlers = {
+            ["textDocument/publishDiagnostics"] = function(_, result, ctx, config)
+              local client = vim.lsp.get_client_by_id(ctx.client_id)
+              local filtered_diagnostics = {}
+              local ignored_codes = {
+                -- Could not find a declaration file for...
+                7016,
+              }
+              
+              for _, diagnostic in ipairs(result.diagnostics) do
+                -- Check if the diagnostic code is not in the ignored_codes list
+                if not vim.tbl_contains(ignored_codes, diagnostic.code) then
+                  table.insert(filtered_diagnostics, diagnostic)
+                end
+              end
+              
+              result.diagnostics = filtered_diagnostics
+              vim.lsp.diagnostic.on_publish_diagnostics(_, result, ctx, config)
+            end,
+          },
         })
       end,
       ["eslint"] = function()
