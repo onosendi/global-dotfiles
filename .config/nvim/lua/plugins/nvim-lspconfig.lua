@@ -11,15 +11,6 @@ return {
   },
   config = function()
     local lspconfig = require("lspconfig")
-    --
-    lspconfig.eslint.setup({
-      on_attach = function(client, bufnr)
-        vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>lf', '<cmd>lua vim.lsp.buf.code_action({ apply = true, context = { only = { "source.fixAll.eslint" } } })<CR>', {noremap = true, silent = true})
-        vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>lr', '<cmd>lua vim.lsp.buf.code_action({ apply = true, context = { only = { "source.removeUnusedImports.ts" } } })<CR>', {noremap = true, silent = true})
-        vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>li', '<cmd>lua vim.lsp.buf.code_action({ apply = true, context = { only = { "source.addMissingImports.ts" } } })<CR>', {noremap = true, silent = true})
-        vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>lo', '<cmd>lua vim.lsp.buf.execute_command({command = "_typescript.organizeImports", arguments = {vim.api.nvim_buf_get_name(0)}})<CR>', {noremap = true, silent = true})
-      end,
-    })
 
     -- import mason_lspconfig plugin
     local mason_lspconfig = require("mason-lspconfig")
@@ -48,7 +39,7 @@ return {
         vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
 
         -- Float diagnostics
-        vim.keymap.set('n', 'D', ":Telescope diagnostics bufnr=0<CR>", opts)
+        vim.keymap.set('n', '<leader>D', ":Telescope diagnostics bufnr=0<CR>", opts)
 
         -- Show hover information
         vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
@@ -118,6 +109,48 @@ return {
       function(server_name)
         lspconfig[server_name].setup({
           capabilities = capabilities,
+        })
+      end,
+      ["tsserver"] = function()
+        lspconfig["tsserver"].setup({
+          capabilities = capabilities,
+          filetypes = { "javascript", "typescript", "typescriptreact", "javascriptreact" },
+          on_attach = function(client, bufnr)
+            vim.keymap.set('n', '<leader>oi', function()
+              vim.lsp.buf.execute_command({
+                command = "_typescript.organizeImports",
+                arguments = {vim.api.nvim_buf_get_name(0)}
+              })
+            end, { buffer = bufnr, desc = "Organize Imports" })
+
+            vim.keymap.set('n', '<leader>ri', function()
+              vim.lsp.buf.code_action({
+                apply = true,
+                context = { only = { "source.removeUnusedImports.ts" } }
+              })
+            end, { buffer = bufnr, desc = "Remove unused imports" })
+
+            vim.keymap.set('n', '<leader>ai', function()
+              vim.lsp.buf.code_action({
+                apply = true,
+                context = { only = { "source.addMissingImports.ts" } }
+              })
+            end, { buffer = bufnr, desc = "Add missing imports" })
+          end,
+        })
+      end,
+      ["eslint"] = function()
+        lspconfig.eslint.setup({
+          capabilities = capabilities,
+          filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
+          on_attach = function(client, bufnr)
+            vim.keymap.set('n', '<leader>fa', function()
+              vim.lsp.buf.code_action({
+                apply = true,
+                context = { only = { "source.fixAll.eslint" } }
+              })
+            end, { buffer = bufnr, desc = "Fix all ESLint issues" })
+          end,
         })
       end,
       ["emmet_ls"] = function()
