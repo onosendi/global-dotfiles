@@ -17,5 +17,11 @@ map('n', '<C-K>', '<C-W><C-K>', { noremap = true })
 map('n', '<C-L>', '<C-W><C-L>', { noremap = true })
 map('n', '<C-H>', '<C-W><C-H>', { noremap = true })
 
+-- Use this for navigation in terminal mode
+map('t', '<C-k>', [[<C-\><C-n><C-W>k]], {noremap = true, silent = true})
+
+-- Enter normal mode in a terminal buffer.
+map('t', '<C-o>', '<C-\\><C-n>', {noremap = true, silent = true})
+
 -- Make all windows equal size
 map('n', '<Leader>ds', '<C-W>=', { noremap = true })

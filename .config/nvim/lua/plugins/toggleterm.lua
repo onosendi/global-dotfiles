@@ -10,5 +10,11 @@ return {
       shading_factor = 0,
       open_mapping = [[<c-\>]]
     })
+
+    -- Start in insert mode whenever switching to a terminal buffer.
+    vim.api.nvim_create_autocmd("BufEnter", {
+      pattern = "term://*",
+      command = "startinsert",
+    })
   end,
 }

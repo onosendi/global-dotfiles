@@ -5,6 +5,6 @@ return {
 
     gitsigns.setup({})
 
-    vim.keymap.set('n', '<Leader>gs', ':Gitsigns toggle_signs<CR>')
+    vim.keymap.set('n', '<leader>gs', ':Gitsigns toggle_signs<CR>')
   end,
 }
