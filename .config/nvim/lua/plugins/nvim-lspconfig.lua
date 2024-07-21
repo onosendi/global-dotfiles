@@ -157,6 +157,8 @@ return {
               local ignored_codes = {
                 -- Could not find a declaration file for...
                 7016,
+                -- File is a CommonJS module, it may be converted into an ES module.
+                80001
               }
 
               for _, diagnostic in ipairs(result.diagnostics) do
