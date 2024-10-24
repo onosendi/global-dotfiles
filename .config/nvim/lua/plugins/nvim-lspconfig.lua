@@ -109,7 +109,7 @@ return {
         "nginx_language_server",
         "pyright",
         "taplo",
-        "tsserver",
+        "ts_ls",
         "yamlls",
       },
     })
@@ -124,7 +124,7 @@ return {
           capabilities = capabilities,
         })
       end,
-      ["tsserver"] = function()
+      ["ts_ls"] = function()
         lspconfig["tsserver"].setup({
           capabilities = capabilities,
           filetypes = { "javascript", "typescript", "typescriptreact", "javascriptreact" },
