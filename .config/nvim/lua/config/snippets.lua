@@ -47,6 +47,18 @@ local jsts = {
     t({"", "}"}),
   }),
   s({
+    trig = "aaf",
+    namr = "Async Arrow Function",
+    dscr = "Create an async arrow function",
+  }, {
+    t("async ("),
+    i(1),
+    t(") => {"),
+    t({"", "  "}),
+    i(2),
+    t({"", "}"}),
+  }),
+  s({
     trig = "fn",
     namr = "Function Declaration",
     dscr = "Create a function declaration",

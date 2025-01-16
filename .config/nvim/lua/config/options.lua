@@ -78,3 +78,7 @@ vim.opt.cursorline = true
 
 -- Enable system clipboard integration
 vim.opt.clipboard:append("unnamedplus")
+
+-- Set title string
+vim.opt.title = true
+vim.opt.titlestring = [[%{fnamemodify(getcwd(),':t')} - %t]]
